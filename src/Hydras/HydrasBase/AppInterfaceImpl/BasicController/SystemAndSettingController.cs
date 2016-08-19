@@ -30,6 +30,10 @@ namespace HydrasBase.AppInterfaceImpl.BasicController
                 readSystemAndSettingNum();
                 readAllSystemAndSetting();
             }
+            else if ("getDateTime".Equals(action))
+            {
+                readDateTime();
+            }
             else if (action.Contains("setSystemAndSetting") == true)
             {
                 byte para;
@@ -118,7 +122,6 @@ namespace HydrasBase.AppInterfaceImpl.BasicController
         {
             for (int i = 0; i < paraNum; i++)
             {
-                //base.execute("getSystemAndSetting" + (i + 1));
                 string action = ActionStrAssistant.buildActionStr("getSystemAndSetting",
                     new ConfigFrame.BaseService.ActionStrAssistant.ParameterValue[]
                     {
@@ -126,6 +129,16 @@ namespace HydrasBase.AppInterfaceImpl.BasicController
                     });
                 base.execute(action);
             }
+        }
+
+        private void readDateTime()
+        {
+            string action = ActionStrAssistant.buildActionStr("getSystemAndSetting",
+                new ConfigFrame.BaseService.ActionStrAssistant.ParameterValue[]
+                {
+                    new ActionStrAssistant.ParameterValue("para1", 8 + "")
+                });
+            base.execute(action);
         }
 
         public override void handleResult(IMetaModel mModel)

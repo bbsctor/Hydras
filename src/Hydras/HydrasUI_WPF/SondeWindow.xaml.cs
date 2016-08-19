@@ -49,6 +49,7 @@ namespace HydrasUI_WPF
         private OnlineParameterValueTaskGroup onlineParameterValueTaskGroup;
         private OnlineParameterValueTaskGroup calibrationParameterValueTaskGroup;
         private LogFileStatusTaskGroup logFileStatusTaskGroup;
+        private SynDateTimeTaskGroup synDateTimeTaskGroup;
 
         private byte securityLevel;
         private UICommonService uiBasicService;
@@ -97,6 +98,18 @@ namespace HydrasUI_WPF
             initTaskGroup();
             initData();
 
+
+            startSynDateTime();
+        }
+
+        private void startSynDateTime()
+        {
+            synDateTimeTaskGroup =
+                new SynDateTimeTaskGroup(this, systemUIManager.updateUI); ;
+            synDateTimeTaskGroup.port = port;
+            synDateTimeTaskGroup.CurrentMode = BasicTaskGroup.Mode.MULTI_THREAD;
+            synDateTimeTaskGroup.Interval = 10000;
+            synDateTimeTaskGroup.synchronizedDateTime();
         }
 
         private void initUIService(SerialPortModel sModel)
@@ -210,10 +223,8 @@ namespace HydrasUI_WPF
 
         private void initData()
         {
-            //this.processStatusBarItem.Content = "开始载入数据...";
             operateSondeTask.port = port;
             operateSondeTask.operate();
-            //this.processStatusBarItem.Content = "载入数据完成...";
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -227,6 +238,7 @@ namespace HydrasUI_WPF
             }
             finishCalibrationTask();
             operateSondeTask.finish();
+            synDateTimeTaskGroup.finish();
             UIOperateSondeService.closePort();
             uiBasicService.cleanRepository();
             SondeWindowContext.removeSondeWindow(port);

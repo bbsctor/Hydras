@@ -145,6 +145,7 @@
     <Compile Include="UITaskImpl\OperateSondeTaskGroup.cs" />
     <Compile Include="UITaskImpl\ParaSetupDetailInfoTaskGroup.cs" />
     <Compile Include="UITaskImpl\ScanSondeTaskGroup.cs" />
+    <Compile Include="UITaskImpl\SynDateTimeTaskGroup.cs" />
     <Compile Include="Util\HydrasExecuteInfoSubscriber.cs" />
     <Compile Include="Util\LogFileBuilder.cs" />
     <Compile Include="Util\MainWindowContext.cs" />

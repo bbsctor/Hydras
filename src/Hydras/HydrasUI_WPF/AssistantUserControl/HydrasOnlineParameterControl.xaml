@@ -43,8 +43,8 @@
             <CheckBox>使用稳定性检测</CheckBox>
             <Button>配置</Button>
         </WrapPanel>
-        <WrapPanel Height="474" Width="540">
-            <DataGrid AutoGenerateColumns="False" Height="456" HorizontalAlignment="Left" Margin="12,12,0,0" Name="mainDataGrid" VerticalAlignment="Top" Width="260" ItemsSource="{Binding}" CanUserResizeRows="False" SelectionMode="Single" CanUserAddRows="False">
+        <WrapPanel Height="496" Width="540">
+            <DataGrid AutoGenerateColumns="False" Height="478" HorizontalAlignment="Left" Margin="12,12,0,0" Name="mainDataGrid" VerticalAlignment="Top" Width="260" ItemsSource="{Binding}" CanUserResizeRows="False" SelectionMode="Single" CanUserAddRows="False" FontSize="10" GridLinesVisibility="None">
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn x:Name="checkColumn" Binding="{Binding IsChecked}"/>
                     <DataGridTextColumn Header="参数名称" Binding="{Binding ParaName}"/>

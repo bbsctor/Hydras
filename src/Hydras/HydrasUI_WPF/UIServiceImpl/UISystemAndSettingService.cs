@@ -27,6 +27,11 @@ namespace HydrasUI_WPF.UIServiceImpl
             controller.execute("getSystemAndSetting");
         }
 
+        public void getDateTime()
+        {
+            controller.execute("getDateTime");
+        }
+
         public void setID()
         {
             controller.execute("setID");

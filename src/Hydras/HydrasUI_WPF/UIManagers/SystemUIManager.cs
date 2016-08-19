@@ -58,7 +58,7 @@ namespace HydrasUI_WPF.UIManagers
             mainFrame.system_instrumentIDTextBox.Text = StringByteConverter.byteArrayToString(vItem.SettingContent);
         }
 
-        private void updateUI_dateTime(SystemAndSettingViewModel vItem)
+        public void updateUI_dateTime(SystemAndSettingViewModel vItem)
         {
 
             uint seconds;
