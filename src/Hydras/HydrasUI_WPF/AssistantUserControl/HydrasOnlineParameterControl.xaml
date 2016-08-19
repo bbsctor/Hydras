@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="HydrasUI_WPF.AssistantUserControl.HydrasOnlineParameterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="629" d:DesignWidth="585">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height"  Value="25"/>
+            <Setter Property="Width"  Value="150"/>
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="GroupBox">
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Height"  Value="25"/>
+            <Setter Property="Width"  Value="150"/>
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+
+    </UserControl.Resources>
+    <StackPanel Height="605" Width="560">
+        <WrapPanel>
+            <Label>监测模式</Label>
+            <ComboBox Name="modeComboBox" SelectionChanged="modeComboBox_SelectionChanged" SelectedIndex="-1">
+                <ComboBoxItem Content="时间序列" />
+                <ComboBoxItem Content="垂直剖面" Visibility="Collapsed" />
+                <ComboBoxItem Content="手动捕捉" Visibility="Collapsed" />
+            </ComboBox>
+            <Button Width="88" Name="modeStartButton" Click="modeStartButton_Click">开始</Button>
+            <Button Width="83" Name="modeStopButton" Click="modeStopButton_Click">停止</Button>
+        </WrapPanel>
+        <WrapPanel Name="modeParameterPanel"></WrapPanel>
+        <WrapPanel>
+            <CheckBox>使用稳定性检测</CheckBox>
+            <Button>配置</Button>
+        </WrapPanel>
+        <WrapPanel Height="474" Width="540">
+            <DataGrid AutoGenerateColumns="False" Height="456" HorizontalAlignment="Left" Margin="12,12,0,0" Name="mainDataGrid" VerticalAlignment="Top" Width="260" ItemsSource="{Binding}" CanUserResizeRows="False" SelectionMode="Single" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn x:Name="checkColumn" Binding="{Binding IsChecked}"/>
+                    <DataGridTextColumn Header="参数名称" Binding="{Binding ParaName}"/>
+                    <DataGridTextColumn Header="计量单位" Binding="{Binding CalUnit}"/>
+                    <DataGridTextColumn Header="实时值" Binding="{Binding Value}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Width="240">
+                <StackPanel>
+                    <WrapPanel>
+                        <Label>起始采样时间:</Label>
+                        <Label Name="firstSampleLabel" Width="120"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label>最后采样时间:</Label>
+                        <Label Name="lastSampleLabel" Width="120"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label>采样计数:</Label>
+                        <Label Name="sampleNumLabel" Width="105"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label>内部电池电压:</Label>
+                        <Label Name="internalBatteryLabel" Width="120"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label>外部电池电压:</Label>
+                        <Label Name="externalBatteryLabel" Width="120"></Label>
+                    </WrapPanel>
+                </StackPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Name="upButton" Height="27" Width="20"></Button>
+                        <Button Name="downButton" Height="27" Width="20"></Button>
+                    </StackPanel>
+                    <GroupBox Width="125" Header="循环器">
+                        <WrapPanel>
+                            <Button Height="25" Width="50" Name="circulatorStartButton" Content="启动" Click="circulatorStartButton_Click"></Button>
+                            <Button Height="25" Width="50" Name="circulatorStopButton" Content="停止" Click="circulatorStopButton_Click"></Button>
+                        </WrapPanel>
+                    </GroupBox>
+                </WrapPanel>
+                <Button Name="timeGraphButton" Content="生成实时时序图表" Click="timeGraphButton_Click"></Button>
+                <Button Name="depthGraphButton" Content="生成实时深度图表"></Button>
+                <ComboBox></ComboBox>
+                <Button Name="tableButton" Height="25" Content="生成表格" Click="tableButton_Click"></Button>
+                <Button Name="excelButton" Height="25" Content="导出到Excel" Click="excelButton_Click"></Button>
+                <Button Name="textButton" Height="25" Content="导出到文本文件" Click="textButton_Click"></Button>
+                <Button Name="DBButton" Height="25" Content="导出到数据库"></Button>
+            </StackPanel>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

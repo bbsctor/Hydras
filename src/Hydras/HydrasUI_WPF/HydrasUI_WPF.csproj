@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E736784E-0676-440D-85EB-9FE3A3E770AD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HydrasUI_WPF</RootNamespace>
+    <AssemblyName>HydrasUI_WPF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AssistantUserControl\HydrasOnlineParameterControl.xaml.cs">
+      <DependentUpon>HydrasOnlineParameterControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AssistantUserControl\MultiDimensionDynamicChartControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AssistantUserControl\MultiDimensionDynamicChartControl.Designer.cs">
+      <DependentUpon>MultiDimensionDynamicChartControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssistantUserControl\HydrasCalibrationLabelGroup.xaml.cs">
+      <DependentUpon>HydrasCalibrationLabelGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AssistantUserControl\HydrasComboBoxSettingControl.xaml.cs">
+      <DependentUpon>HydrasComboBoxSettingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AssistantUserControl\HydrasTextBoxSettingControl.xaml.cs">
+      <DependentUpon>HydrasTextBoxSettingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogFileCreateWindow.xaml.cs">
+      <DependentUpon>LogFileCreateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogFileDownloadWindow.xaml.cs">
+      <DependentUpon>LogFileDownloadWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineParameterTableWindow.xaml.cs">
+      <DependentUpon>OnlineParameterTableWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OptionWindow.xaml.cs">
+      <DependentUpon>OptionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetPasswordWindow.xaml.cs">
+      <DependentUpon>SetPasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SondeWindow.xaml.cs">
+      <DependentUpon>SondeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StorageInfoWindow.xaml.cs">
+      <DependentUpon>StorageInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeGraphForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeGraphForm.Designer.cs">
+      <DependentUpon>TimeGraphForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIManagers\LogFileDownloadUIManager.cs" />
+    <Compile Include="UIManagers\DynamicBaseUIManager.cs" />
+    <Compile Include="UIManagers\CalibrationUIManager.cs" />
+    <Compile Include="UIManagers\LogFileUIManager.cs" />
+    <Compile Include="UIManagers\MainUIManager.cs" />
+    <Compile Include="UIManagers\OnlineParameterUIManager.cs" />
+    <Compile Include="UIManagers\ParameterSetupUIManager.cs" />
+    <Compile Include="UIManagers\SettingUIManager.cs" />
+    <Compile Include="UIManagers\SondeDataOptionUIManager.cs" />
+    <Compile Include="UIManagers\StaticBaseUIManager.cs" />
+    <Compile Include="UIManagers\SystemUIManager.cs" />
+    <Compile Include="UIManagers\Util\CalibrationUIProxy.cs" />
+    <Compile Include="UIManagers\Util\ParameterSetupUIProxy.cs" />
+    <Compile Include="UIManagers\Util\TabItemFinder.cs" />
+    <Compile Include="UIServiceImpl\UIBasicService.cs" />
+    <Compile Include="UIServiceImpl\UICalibrationInfoService.cs" />
+    <Compile Include="UIServiceImpl\UIDateFormatService.cs" />
+    <Compile Include="UIServiceImpl\UIDeviceStorageService.cs" />
+    <Compile Include="UIServiceImpl\UILogFileBaseInfoService.cs" />
+    <Compile Include="UIServiceImpl\UILogFileParameterInfoService.cs" />
+    <Compile Include="UIServiceImpl\UILogFileParameterValueService.cs" />
+    <Compile Include="UIServiceImpl\UILogFileService.cs" />
+    <Compile Include="UIServiceImpl\UILogFileSettingFieldService.cs" />
+    <Compile Include="UIServiceImpl\UIParameterInfoService.cs" />
+    <Compile Include="UIServiceImpl\UIOnlineParameterValueService.cs" />
+    <Compile Include="UIServiceImpl\UIOperateSondeService.cs" />
+    <Compile Include="UIServiceImpl\UIParaSetupInfoService.cs" />
+    <Compile Include="UIServiceImpl\UIScanService.cs" />
+    <Compile Include="UIServiceImpl\UISecurityLevelService.cs" />
+    <Compile Include="UIServiceImpl\UISystemAndSettingService.cs" />
+    <Compile Include="UIServiceImpl\UICommonService.cs" />
+    <Compile Include="UITaskImpl\CalibrationBaseInfoTaskGroup.cs" />
+    <Compile Include="UITaskImpl\CalibrationDetailInfoTaskGroup.cs" />
+    <Compile Include="UITaskImpl\LogFileStatusTaskGroup.cs" />
+    <Compile Include="UITaskImpl\ParameterInfoTaskGroup.cs" />
+    <Compile Include="UITaskImpl\OnlineParameterValueTaskGroup.cs" />
+    <Compile Include="UITaskImpl\ParaSetupBaseInfoTaskGroup.cs" />
+    <Compile Include="UITaskImpl\OperateSondeTaskGroup.cs" />
+    <Compile Include="UITaskImpl\ParaSetupDetailInfoTaskGroup.cs" />
+    <Compile Include="UITaskImpl\ScanSondeTaskGroup.cs" />
+    <Compile Include="Util\HydrasExecuteInfoSubscriber.cs" />
+    <Compile Include="Util\LogFileBuilder.cs" />
+    <Compile Include="Util\MainWindowContext.cs" />
+    <Compile Include="Util\SondeWindowContext.cs" />
+    <Compile Include="ValidatePasswordWindow.xaml.cs">
+      <DependentUpon>ValidatePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AssistantUserControl\HydrasOnlineParameterControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AssistantUserControl\HydrasCalibrationLabelGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AssistantUserControl\HydrasComboBoxSettingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AssistantUserControl\HydrasTextBoxSettingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogFileCreateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogFileDownloadWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="OnlineParameterTableWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OptionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SetPasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SondeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StorageInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ValidatePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeGraphForm.resx">
+      <DependentUpon>TimeGraphForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigFrame\ConfigFrame.csproj">
+      <Project>{03BD87B8-1BD4-4969-9839-4DE7EFA65DE0}</Project>
+      <Name>ConfigFrame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HydrasBase\HydrasBase.csproj">
+      <Project>{0203ED96-7153-421A-9113-2866D74F8500}</Project>
+      <Name>HydrasBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HydrasFacade\HydrasFacade.csproj">
+      <Project>{B01086A8-30A6-49FE-AE40-8A382E800F48}</Project>
+      <Name>HydrasFacade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HydrasProtocol\HydrasProtocol.csproj">
+      <Project>{F2872373-0796-44B3-B369-9B807D1C35AA}</Project>
+      <Name>HydrasProtocol</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

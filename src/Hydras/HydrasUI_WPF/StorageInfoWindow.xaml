@@ -1,0 +1,44 @@
+﻿<Window x:Class="HydrasUI_WPF.StorageInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StorageInfoWindow" Height="300" Width="300">
+    <StackPanel>
+        <WrapPanel>
+            <Label>日志文件：</Label>
+            <Label Name="logFileLabel"></Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>最大日志编号：</Label>
+            <Label Name="maxFileNumLabel"></Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>可用内存：</Label>
+            <Label Name="availableMemeory"></Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>剩余字节数：</Label>
+            <Label Name="bytesLeftLabel"></Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>剩余天数：</Label>
+            <Label Name="daysLeftLabel"></Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>内部电池剩余：</Label>
+            <Label Name="internalBatteryLeftLabel"></Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>内部电池可用天数剩余：</Label>
+            <Label Name="internalBatteryDaysLeftLabel"></Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>外部内部电池剩余：</Label>
+            <Label Name="externalBatteryLeftLabel"></Label>
+        </WrapPanel>
+        <WrapPanel>
+            <Label>外部电池可用天数剩余：</Label>
+            <Label Name="externalBatteryDaysLeftLabel"></Label>
+        </WrapPanel>
+        <Button Width="87" Name="OKButton" Click="OKButton_Click">确定</Button>
+    </StackPanel>
+</Window>

@@ -1,0 +1,503 @@
+﻿<Window x:Class="HydrasUI_WPF.SondeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        Title="探头窗口" Height="728" Width="672" Closing="Window_Closing" xmlns:my="clr-namespace:System;assembly=mscorlib" ResizeMode="CanResize" xmlns:my1="clr-namespace:HydrasUI_WPF.AssistantUserControl">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height"  Value="25"/>
+            <Setter Property="Width"  Value="150"/>
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Height"  Value="25"/>
+            <Setter Property="Width"  Value="150"/>
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Height"  Value="25"/>
+            <Setter Property="Width"  Value="150"/>
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Height"  Value="25"/>
+            <Setter Property="Width"  Value="100"/>
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height"  Value="25"/>
+            <Setter Property="Width"  Value="100"/>
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="GroupBox">
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="WrapPanel">
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="TabControl">
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+        <Style TargetType="StatusBar">
+            <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+            <Setter Property="VerticalAlignment"  Value="Stretch"/>
+            <Setter Property="Margin"  Value="2,2"/>
+        </Style>
+
+    </Window.Resources>
+    <StackPanel Width="620" Height="678">
+        <TabControl Name="sondeTabControl" Margin="2,2,16,2" Width="591" Height="639">
+            <TabItem Name="systemTabItem" Header="系统" GotFocus="systemTabItem_GotFocus">
+                <StackPanel Name="stackPanel1" >
+                        <WrapPanel Name="wrapPanel1">
+                            <Label Content="仪器ID:" Name="system_instrumentIDLabel" />
+                            <TextBox Name="system_instrumentIDTextBox" Width="200" MaxLength="15" />
+                            <Button Content="设置ID" Name="system_setIDButton" Click="system_setIDButton_Click" />
+                        </WrapPanel>
+                    <GroupBox Header="探头信息" Name="groupBox1">
+
+                            <StackPanel Name="stackPanel2">
+                                <WrapPanel>
+                                    <Label Content="制造商：" Name="system_manufacturerLabel"  />
+                                    <TextBox Name="system_manufacturerTextBox" IsReadOnly="True" IsEnabled="False" />
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="模型：" Name="system_modelLabel" />
+                                    <TextBox Name="system_modelTextBox" IsEnabled="False" IsReadOnly="True" />
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="序列号：" Name="system_serialNumLabel" />
+                                    <TextBox  Name="system_serialNumTextBox" IsEnabled="False" IsReadOnly="True" />
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="软件版本号：" Name="system_softwareVersionLabel"/>
+                                    <TextBox Name="system_softwareVersionTextBox" IsEnabled="False" IsReadOnly="True" />
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="Modbus版本号：" Name="system_modbusVersionLabel"/>
+                                    <TextBox Name="system_modbusVersionTextBox" IsEnabled="False" IsReadOnly="True" />
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="制造日期：" Name="system_manufacturerDateLabel"/>
+                                    <TextBox Name="system_manufacturerDateTextBox" IsEnabled="False" IsReadOnly="True" />
+                            </WrapPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="时钟" Name="clock" >
+                        <StackPanel>
+                            <WrapPanel Name="wrapPanel2">
+                                <Label Content="日期/时间"></Label>
+                                    <WindowsFormsHost >
+                                        <wf:DateTimePicker x:Name="system_displayDate" Format="Short" Width="150" Enabled="False">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                    <WindowsFormsHost>
+                                        <wf:DateTimePicker x:Name="system_displayTime" Format="Time" Width="150" Enabled="False">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Button Content="与计算机同步" Name="system_synPCTimeButton" Click="system_synPCTimeButton_Click"></Button>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Button Content="手动设定" Name="system_manualTimeButton" Click="system_manualTimeButton_Click"></Button>
+                                    <WindowsFormsHost>
+                                        <wf:DateTimePicker x:Name="system_manualDate" Format="Short" Width="150">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                    <WindowsFormsHost>
+                                        <wf:DateTimePicker x:Name="system_manualTime" Format="Time" Width="150" ShowUpDown="True">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                </WrapPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="循环器" Name="circulator" >
+                        <WrapPanel>
+                            <Button Name="system_circulatorStartButton" Content="启动" Click="system_circulatorStartButton_Click"></Button>
+                            <Button Name="system_circulatorStopButton" Content="停止" Click="system_circulatorStopButton_Click"></Button>
+                        </WrapPanel>
+                    </GroupBox>
+                    <GroupBox Header="音效" Name="audio" >
+                        <WrapPanel>
+                            <Button Content="打开" Name="system_audioOpenButton" Click="system_audioOpenButton_Click"></Button>
+                            <Button Content="关闭" Name="system_audioCloseButton" Click="system_audioCloseButton_Click"></Button>
+                        </WrapPanel>
+                    </GroupBox>
+                    <GroupBox Header="安全等级">
+                        <WrapPanel>
+                            <Button Width="80" Content="等级0" IsEnabled="False" Name="security_level0Button" Click="security_level0Button_Click"></Button>
+                            <Button Width="80" Content="等级1" IsEnabled="False" Name="security_level1Button" Click="security_level1Button_Click"></Button>
+                            <Button Width="80" Content="等级2" Name="security_level2Button" Click="security_level2Button_Click"></Button>
+                            <Button Width="80" Content="等级3" IsEnabled="False" Name="security_level3Button" Click="security_level3Button_Click"></Button>
+                            <Button Width="80" Content="密码" IsEnabled="False" Name="security_pwdButton" Click="security_pwdButton_Click"></Button>
+                        </WrapPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="参数设置" Name="parameterSetupTabItem" GotFocus="parameterSetupTabItem_GotFocus">
+                <Grid></Grid>
+            </TabItem>
+            <TabItem Header="校准" Name="calibrationTabItem" LostFocus="calibrationTabItem_LostFocus" GotFocus="calibrationTabItem_GotFocus">
+                <Grid></Grid>
+            </TabItem>
+            <TabItem Header="实时监测" Name="onlineMonitoringTabItem" GotFocus="onlineMonitoringTabItem_GotFocus">
+                <my1:HydrasOnlineParameterControl x:Name="hydrasOnlineParameterControl" Margin="6,6,5,17" Width="543" />
+            </TabItem>
+            <TabItem Header="设置" Name="settingTabItem" GotFocus="settingTabItem_GotFocus">
+                    <StackPanel>
+                        <GroupBox Header="通信">
+                            <StackPanel>
+                                <WrapPanel>
+                                    <GroupBox Width="150" Header="波特率">
+                                        <ComboBox Width="100" Name="setting_baudrateComboBox">
+                                            <ComboBoxItem Content="0:1200" />
+                                            <ComboBoxItem Content="2:2400" />
+                                            <ComboBoxItem Content="4:4800" />
+                                            <ComboBoxItem Content="9:9600" />
+                                            <ComboBoxItem Content="1:19200" />
+                                        </ComboBox>
+                                    </GroupBox>
+                                    <GroupBox Width="250" Header="ModBus">
+                                        <WrapPanel>
+                                            <Label Content="地址">
+                                                
+                                            </Label>
+                                            <TextBox Width="100" Name="setting_modbusAddrTextBox">
+                                                
+                                            </TextBox>
+                                        </WrapPanel>
+                                    </GroupBox>
+                                </WrapPanel>
+                                <GroupBox Header="SDI" Name="setting_sdiGroupBox" Visibility="Collapsed">
+                                    <StackPanel>
+                                        <CheckBox Content="启用" Name="setting_sdiEnableCheckBox" Checked="setting_sdiEnableCheckBox_Checked" Unchecked="setting_sdiEnableCheckBox_Unchecked">
+                                            
+                                        </CheckBox>
+                                        <WrapPanel>
+                                            <Label Width="75" Content="地址">
+                                                
+                                            </Label>
+                                            <TextBox Width="75" Name="setting_sdiAddrTextBox">
+                                                
+                                            </TextBox>
+                                            <Label Width="75" Content="延时">
+                                                
+                                            </Label>
+                                            <TextBox Width="75" Name="setting_sdiDelayTextBox">
+                                                
+                                            </TextBox>
+                                            <Label Width="75" Content="秒">
+                                                
+                                            </Label>
+                                        </WrapPanel>
+                                        <WrapPanel>
+                                            <CheckBox Content="启用连续模式" Name="setting_sdiModeCheckBox">
+                                                
+                                            </CheckBox>
+                                            <Button Content="定义SDI参数序列">
+                                                
+                                            </Button>
+                                        </WrapPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                                <Button Content="保存" Name="setting_commSaveButton" Click="setting_commSaveButton_Click">
+                                    
+                                </Button>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="日志文件">
+                            <StackPanel>
+                                <Label Content="文件：">
+                                    
+                                </Label>
+                                <WrapPanel>
+                                    <ComboBox Name="setting_logFileComboBox" SelectionChanged="setting_logFileComboBox_SelectionChanged" IsEnabled="False">
+                                        <ComboBoxItem Content="1:File(5-sec)" />
+                                        <ComboBoxItem Content="2:Files(10-sec)" />
+                                        <ComboBoxItem Content="3:Files(20-sec)" />
+                                        <ComboBoxItem Content="4:Files(30-sec)" />
+                                    </ComboBox>
+                                    <CheckBox Content="自动记录" Name="setting_logFileCheckBox" Checked="setting_logFileCheckBox_Checked" Unchecked="setting_logFileCheckBox_Unchecked">
+                                        
+                                    </CheckBox>
+                                    <Button Content="统计" Name="setting_logFileButton" Click="setting_logFileButton_Click">
+                                        
+                                    </Button>
+                                </WrapPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <WrapPanel>
+                            <Grid>
+                                <StackPanel Width="200">
+                                    <GroupBox Header="TTY模式">
+                                        <Button Content="输入">
+                                            
+                                        </Button>
+                                    </GroupBox>
+                                    <GroupBox Header="日期格式">
+                                        <StackPanel>
+                                            <ComboBox Name="setting_dateTimeComboBox" SelectionChanged="setting_dateTimeComboBox_SelectionChanged">
+                                                <ComboBoxItem Content="YYMMDD" />
+                                                <ComboBoxItem Content="DDMMYY" />
+                                                <ComboBoxItem Content="MMDDYY" />
+                                            </ComboBox>
+                                            <CheckBox Content="使用日期/时间分隔符" Name="setting_dateTimeCheckBox" Checked="setting_dateTimeCheckBox_Checked" Unchecked="setting_dateTimeCheckBox_Unchecked">
+                                                
+                                            </CheckBox>
+                                        </StackPanel>
+                                    </GroupBox>
+                                    <Button Content="选项">
+                                        
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                            <Grid>
+                                <GroupBox Header="电池信息">
+                                    <StackPanel>
+                                        <WrapPanel Width="200">
+                                            <Label Content="容量[Ah]:" Width="120">
+
+                                            </Label>
+                                            <TextBox Width="60">
+
+                                            </TextBox>
+                                        </WrapPanel>
+                                        <WrapPanel Width="200">
+                                            <Label Content="起始电压[100%][V]:" Width="120">
+
+                                            </Label>
+                                            <TextBox Width="60">
+
+                                            </TextBox>
+                                        </WrapPanel>
+                                        <WrapPanel Width="200">
+                                            <Label Content="终止电压[0%][V]:" Width="120">
+
+                                            </Label>
+                                            <TextBox Width="60">
+
+                                            </TextBox>
+                                        </WrapPanel>
+                                        <WrapPanel Width="200">
+                                            <Label Content="类型:" Width="80">
+
+                                            </Label>
+                                            <ComboBox Width="100"></ComboBox>
+                                        </WrapPanel>
+                                        <Button Content="保存" Width="80"></Button>
+                                    </StackPanel>
+                                </GroupBox>
+                                
+                            </Grid>
+                        </WrapPanel>
+                    </StackPanel>
+            </TabItem>
+                <TabItem Header="日志文件" Name="tabItem1" GotFocus="tabItem1_GotFocus">
+                    <StackPanel>
+                        <Grid>
+                            <StackPanel>
+                                <WrapPanel>
+                                    <Label Content="日志文件" Width="122">
+                                        
+                                    </Label>
+                                    <ComboBox Name="logFile_fileComboBox" SelectionChanged="logFile_fileComboBox_SelectionChanged">
+                                        
+                                    </ComboBox>
+                                    <Button Content="保存" Name="logFile_savingButton" Click="logFile_savingButton_Click">
+                                        
+                                    </Button>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="类型：" Width="122">
+
+                                    </Label>
+                                    <Label Name="logFile_typeLabel" Width="120">
+
+                                    </Label>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="状态：" Width="122">
+
+                                    </Label>
+                                    <Label Name="logFile_statusLabel" Width="120">
+
+                                    </Label>
+                                    <Label Name="logFile_statusAlertingLabel" Width="120">
+                                        
+                                    </Label>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="创建时间：" Width="122">
+
+                                    </Label>
+                                    <Label Name="logFile_createDTLabel" Width="120">
+
+                                    </Label>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="大小(Bytes/Scans)：" Width="122">
+
+                                    </Label>
+                                    <Label Name="logFile_sizeLabel" Width="120">
+
+                                    </Label>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Grid>
+                        <Grid>
+                            <StackPanel>
+                                <WrapPanel>
+                                    <Label Content="日志起始">
+
+                                    </Label>
+                                    <WindowsFormsHost >
+                                        <wf:DateTimePicker x:Name="logFile_startLoggingDate" Format="Short" Width="150" Enabled="True">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                    <WindowsFormsHost >
+                                        <wf:DateTimePicker x:Name="logFile_startLoggingTime" Format="Time" Width="150" Enabled="True" ShowUpDown="True">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="日志结束">
+
+                                    </Label>
+                                    <WindowsFormsHost >
+                                        <wf:DateTimePicker x:Name="logFile_stopLoggingDate" Format="Short" Width="150" Enabled="True">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                    <WindowsFormsHost >
+                                        <wf:DateTimePicker x:Name="logFile_stopLoggingTime" Format="Time" Width="150" Enabled="True" ShowUpDown="True">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="采集间隔">
+
+                                    </Label>
+                                    <WindowsFormsHost >
+                                        <wf:DateTimePicker x:Name="logFile_interval" Format="Time" Width="150" Enabled="True" ShowUpDown="True">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="传感器预热">
+
+                                    </Label>
+                                    <WindowsFormsHost >
+                                        <wf:DateTimePicker x:Name="logFile_sensorWarmup" Format="Time" Width="150" Enabled="True" ShowUpDown="True">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <Label Content="循环器预热">
+
+                                    </Label>
+                                    <WindowsFormsHost >
+                                        <wf:DateTimePicker x:Name="logFile_circulatorWarmup" Format="Time" Width="150" Enabled="True" ShowUpDown="True">
+                                        </wf:DateTimePicker>
+                                    </WindowsFormsHost>
+                                    <CheckBox Content="音效" x:Name="logFile_audio" >
+                                        
+                                    </CheckBox>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Grid>
+                        <Grid>
+                            <WrapPanel>
+                                <Grid Width="204">
+                                    <ListView Height="170" Name="logFile_allParameterListView" ItemsSource="{Binding}" Margin="6,0">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="ParaName" DisplayMemberBinding="{Binding Path=ParaName}" />
+                                                <GridViewColumn Header="CalUnit" DisplayMemberBinding="{Binding Path=CalUnit}" />
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </Grid>
+                                <Grid>
+                                    <StackPanel Margin="2,2,0,2" Width="106">
+                                        <Button Content="△" Width="30" HorizontalAlignment="Right">
+                                            
+                                        </Button>
+                                        <Button Content="▽" HorizontalAlignment="Right" Width="30">
+
+                                        </Button>
+                                        <Button Content="＞＞添加＞＞" Name="logFile_addParameterButton" Click="logFile_addParameterButton_Click">
+
+                                        </Button>
+                                        <Button Content="移除" Name="logFile_removeParameterButton" Click="logFile_removeParameterButton_Click">
+
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Width="218">
+                                    <ListView Height="170" Name="logFile_selParameterListView" ItemsSource="{Binding}" Margin="6,0">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="ParaName" DisplayMemberBinding="{Binding Path=ParaName}" />
+                                                <GridViewColumn Header="CalUnit" DisplayMemberBinding="{Binding Path=CalUnit}" />
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </Grid>
+                            </WrapPanel>
+                        </Grid>
+                        <WrapPanel>
+                            <Button Width="70" Content="创建" Name="logFile_createButton" Click="logFile_createButton_Click">
+                                
+                            </Button>
+                            <Button Width="70" Content="启用" Name="logFile_enableButton" Click="logFile_enableButton_Click">
+
+                            </Button>
+                            <Button Width="70" Content="禁用" Name="logFile_disableButton" Click="logFile_disableButton_Click">
+
+                            </Button>
+                            <Button Width="70" Content="删除" Name="logFile_deleteButton" Click="logFile_deleteButton_Click">
+
+                            </Button>
+                            <Button Width="70" Content="下载" Name="logFile_downloadButton" Click="logFile_downloadButton_Click">
+
+                            </Button>
+                            <Button Width="70" Content="转换数据库" Name="logFile_transferDBButton">
+
+                            </Button>
+                        </WrapPanel>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        <StatusBar Name="mainStatusBar" Height="25">
+            <StatusBarItem Name="processStatusBarItem" Width="300"></StatusBarItem>
+            <Separator/>
+            <StatusBarItem Name="clockStatusBarItem"></StatusBarItem>
+        </StatusBar>
+    </StackPanel>
+</Window>

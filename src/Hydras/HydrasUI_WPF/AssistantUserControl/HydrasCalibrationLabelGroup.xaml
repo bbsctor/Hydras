@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="HydrasUI_WPF.AssistantUserControl.HydrasCalibrationLabelGroup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="111" d:DesignWidth="265">
+        <StackPanel Margin="0,0,0,21">
+            <WrapPanel>
+                <Label>
+                   实时数值： 
+                </Label>
+                <Label Name="currentValueLabel" Width="155">
+                    
+                </Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label>
+                    日期/时间：
+                </Label>
+                <Label Name="dateTimeLabel" Width="150">
+
+                </Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label>
+                    温度：
+                </Label>
+                <Label Name="temperatureLabel" Width="179">
+
+                </Label>
+            </WrapPanel>
+        </StackPanel>
+</UserControl>

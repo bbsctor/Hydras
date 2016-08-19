@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0203ED96-7153-421A-9113-2866D74F8500}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HydrasBase</RootNamespace>
+    <AssemblyName>HydrasBase</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppInterfaceImpl\BasicController\CalibrationInfoController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\DateFormatController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\HydrasBasicController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\LogFileBaseInfoController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\LogFileParameterInfoController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\LogFileParameterValueController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\LogFileSettingFieldController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\OnlineParameterValueController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\ParameterSetupInfoController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\SDIParameterController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\SystemAndSettingController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\ParameterInfoController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\StopInteractController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\DeviceStorageController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\SecurityLevelController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\HandsShakeController.cs" />
+    <Compile Include="AppInterfaceImpl\BasicController\ScanSondeController.cs" />
+    <Compile Include="AppInterfaceImpl\LogFileController.cs" />
+    <Compile Include="AppInterfaceImpl\ScanController.cs" />
+    <Compile Include="AppInterfaceImpl\OperateSondeController.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\Common\BaseSondeParameterInfoDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\CalibrationBaseInfoDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\CalibrationBaseInfoListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\CalibrationDetailInfoDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\CalibrationDetailInfoListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\Common\BaseSondeParameterInfoListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\DateFormatDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\LogFileBaseInfoDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\LogFileBaseInfoListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\LogFileParameterInfoDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\LogFileParameterInfoListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\LogFileParameterValueDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\LogFileParameterValueListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\LogFileSettingFieldDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\LogFileSettingFieldListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\OnlineParameterValueDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\ParameterSetupBaseInfoDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\ParameterSetupBaseInfoListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\DeviceStorageDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\ParameterSetupDetailInfoDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\ParameterSetupDetailInfoListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\SDIParameterDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\SecurityLevelDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\SondeDataOptionDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\SondeDetailDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\SondeInfoDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\SondeInfoListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\SystemAndSettingDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\SystemAndSettingListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\ParameterInfoDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseDataModelImpl\ParameterInfoListDataModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\CalibrationMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\DateFormatMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\LogFileMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\ParameterSetupMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\DeviceStorageMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\HandsShakeMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\SDIParameterMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\SecurityLevelMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\SettingParameterMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseMetaModelImpl\ParameterMetaModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\CalibrationDetailInfoListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\CalibrationDetailInfoViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\Common\BaseSondeParameterInfoListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\Common\BaseSondeParameterInfoViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\DateFormatViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\DeviceStorageViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\LogFileListViewItem.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\LogFileParameterInfoListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\LogFileParameterInfoViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\LogFileParameterValueListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\LogFileParameterValueViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\LogFileSettingFieldViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\LogFileBaseInfoListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\LogFileBaseInfoViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\LogFileSettingFieldListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\ParameterInfoListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\ParameterInfoViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\OnlineParameterValueViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\ParameterSetupDetailInfoListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\ParameterSetupDetailInfoViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\SecurityLevelViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\SondeInfoListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\SondeInfoViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\SystemAndSettingListViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\SystemAndSettingViewModel.cs" />
+    <Compile Include="BaseModelImpl\BaseViewModelImpl\Util\OnlineParameterInfoModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\CalibrationDetailInfoListModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\CalibrationDetailInfoModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\DateFormatModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\DeviceStorageModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\LogFileBaseInfoListModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\LogFileBaseInfoModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\LogFileParameterInfoListModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\LogFileParameterInfoModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\LogFileParameterValueListModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\LogFileParameterValueModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\LogFileSettingFieldListModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\LogFileSettingFieldModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\ParameterInfoListModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\ParameterInfoModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\OnlineParameterValueModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\ParaSetupDetailInfoListModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\ParaSetupDetailInfoModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\SecurityLevelModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\SondeInfoListModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\SondeInfoModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\SystemAndSettingListModelConverter.cs" />
+    <Compile Include="BaseModelImpl\ModelConverterImpl\SystemAndSettingModelConverter.cs" />
+    <Compile Include="CommunicationDataWrapper\Request.cs" />
+    <Compile Include="CommunicationDataWrapper\Response.cs" />
+    <Compile Include="CommunicationDataWrapper\Util\InteractionValidator.cs" />
+    <Compile Include="CommunicationService\HydrasCommunicationService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\BasicService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\CalibrationInfoService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\DateFormatService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\CalibrationBaseInfoParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\CalibrationDetailInfoParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\DateFormatParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\LogFileBaseInfoParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\LogFileParameterInfoParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\LogFileParameterValueParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\LogFileSettingFieldParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\OnlineParameterValueParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\ParameterSetupDetailInfoParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\SDIParameterParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\LogFileService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\OnlineParameterValueService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\ParameterSetupInfoService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\DeviceStorageService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\ParameterSetupBaseInfoParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\DeviceStorageParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\SecurityLevelParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\SondeInfoParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\SystemAndSettingParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\FrameParser\ParameterInfoParser.cs" />
+    <Compile Include="ModelProtocolServiceImpl\HandsShakeService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\SDIParameterService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\SecurityLevelService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\SystemAndSettingService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\ParameterInfoService.cs" />
+    <Compile Include="ModelProtocolServiceImpl\StopInteractService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\SlaveAddrContext.cs" />
+    <Compile Include="Util\SondeParameterMapperContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigFrame\ConfigFrame.csproj">
+      <Project>{03BD87B8-1BD4-4969-9839-4DE7EFA65DE0}</Project>
+      <Name>ConfigFrame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HydrasProtocol\HydrasProtocol.csproj">
+      <Project>{F2872373-0796-44B3-B369-9B807D1C35AA}</Project>
+      <Name>HydrasProtocol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtocolFrame\ProtocolFrame.csproj">
+      <Project>{EED184AE-D528-4245-B89A-4D29708FB09C}</Project>
+      <Name>ProtocolFrame</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

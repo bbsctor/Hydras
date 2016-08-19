@@ -1,0 +1,8 @@
+﻿<Window x:Class="HydrasUI_WPF.OnlineParameterTableWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="OnlineParameterTableWindow" Height="282" Width="440">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" Height="243" HorizontalAlignment="Left" Name="dataGrid1" VerticalAlignment="Top" Width="418" CanUserResizeColumns="True" CanUserDeleteRows="True" CanUserAddRows="True" SelectionMode="Single" IsReadOnly="True" />
+    </Grid>
+</Window>

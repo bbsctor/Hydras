@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03BD87B8-1BD4-4969-9839-4DE7EFA65DE0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConfigFrame</RootNamespace>
+    <AssemblyName>ConfigFrame</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppInterface\BasicController.cs" />
+    <Compile Include="AppInterface\BasicStaticController.cs" />
+    <Compile Include="AppInterface\ExecuteInfoEventArgs.cs" />
+    <Compile Include="AppInterface\ExecuteInfoSubscriber.cs" />
+    <Compile Include="AppInterface\IController.cs" />
+    <Compile Include="AppInterface\IControllerListener.cs" />
+    <Compile Include="AppInterface\IDynamicController.cs" />
+    <Compile Include="AppInterface\IInteractionValidator.cs" />
+    <Compile Include="AppInterface\LocalRunningServer.cs" />
+    <Compile Include="AppInterface\ModelRepository.cs" />
+    <Compile Include="AppInterface\BasicDynamicController.cs" />
+    <Compile Include="AppInterface\IStaticController.cs" />
+    <Compile Include="BaseModel\BasicModel.cs" />
+    <Compile Include="BaseModel\IDataModel.cs" />
+    <Compile Include="BaseModel\IMetaModel.cs" />
+    <Compile Include="BaseModel\IModel.cs" />
+    <Compile Include="BaseModel\IModelConverter.cs" />
+    <Compile Include="BaseModel\IViewModel.cs" />
+    <Compile Include="BaseModel\MetaModel.cs" />
+    <Compile Include="BaseModel\ModelSupport.cs" />
+    <Compile Include="BaseService\ActionStrAssistant.cs" />
+    <Compile Include="CommunicationService\SerialPortSupport\MultiSerialPortModelGen.cs" />
+    <Compile Include="CommunicationService\SerialPortSupport\SerialPortMock.cs" />
+    <Compile Include="CommunicationService\SerialPortSupport\SerialPortModel.cs" />
+    <Compile Include="CommunicationService\ICommunicationService.cs" />
+    <Compile Include="BaseService\IModelProtocolService.cs" />
+    <Compile Include="BaseModel\IProtocolModelConverter.cs" />
+    <Compile Include="CommunicationService\SerialPortSupport\SerialPortAdapter.cs" />
+    <Compile Include="CommunicationService\SerialPortSupport\SerialPortPool.cs" />
+    <Compile Include="CommunicationService\StandardCommunicationService.cs" />
+    <Compile Include="DynamicUI\DynamicControlAssistant.cs" />
+    <Compile Include="ExceptionHandle\ExceptionHandler.cs" />
+    <Compile Include="GraphInterface\IMainGraph.cs" />
+    <Compile Include="CommunicationDataWrapper\IRequest.cs" />
+    <Compile Include="CommunicationDataWrapper\IResponse.cs" />
+    <Compile Include="CommunicationDataWrapper\Simple\SimpleFrame.cs" />
+    <Compile Include="CommunicationDataWrapper\Simple\SimpleRequest.cs" />
+    <Compile Include="CommunicationDataWrapper\Simple\SimpleResponse.cs" />
+    <Compile Include="UITask\IUIService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CommunicationDataWrapper\Complex\IComplexRequest.cs" />
+    <Compile Include="CommunicationDataWrapper\Complex\IComplexResponse.cs" />
+    <Compile Include="CommunicationDataWrapper\RequestWrapper.cs" />
+    <Compile Include="UITask\BasicTask.cs" />
+    <Compile Include="UITask\BasicTaskGroup.cs" />
+    <Compile Include="UITask\BasicBlockUIManager.cs" />
+    <Compile Include="UITask\IBasicTaskGroup.cs" />
+    <Compile Include="UITask\IBlockUIManager.cs" />
+    <Compile Include="UITask\UIManager.cs" />
+    <Compile Include="Util\DateTimeByteConverter.cs" />
+    <Compile Include="Util\StringByteConverter.cs" />
+    <Compile Include="Util\StringExtension.cs" />
+    <Compile Include="Util\UserClock.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
