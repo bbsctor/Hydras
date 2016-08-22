@@ -454,7 +454,16 @@ namespace HydrasUI_WPF
                     uiLogFileBaseInfoService.createLogFile(fileName);
                     uiLogFileService.getAllLogFileBaseInfo();
                     logFileUIManager.updateUI_logFileList();
-                    this.logFile_fileComboBox.Text = fileName;
+                    for (int i = 0; i < this.logFile_fileComboBox.Items.Count; i++)
+                    {
+                        if (fileName.Equals(((ComboBoxItem)(this.logFile_fileComboBox.Items[i])).Content.ToString()))
+                        {
+                            MessageBox.Show("创建成功！");
+                            this.logFile_fileComboBox.Text = fileName;
+                            return;
+                        }
+                    }
+                    MessageBox.Show("创建失败！");     
                 }
             }
         }

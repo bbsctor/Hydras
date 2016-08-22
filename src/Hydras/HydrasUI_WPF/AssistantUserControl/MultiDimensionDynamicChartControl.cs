@@ -75,7 +75,6 @@ namespace HydrasUI_WPF.AssistantUserControl
         public void refreshSeries()
         {
             chart1.ChartAreas["ChartArea1"].AxisX.Minimum = pointList[0].dateTime.ToOADate();
-            //chart1.ChartAreas["ChartArea1"].AxisX.Minimum = DateTime.Now.ToOADate();
             switch (chart1.ChartAreas["ChartArea1"].AxisX.IntervalType)
             {
                 case DateTimeIntervalType.Hours:
@@ -129,6 +128,10 @@ namespace HydrasUI_WPF.AssistantUserControl
 
         public void addPointAndRefresh(RealTimeDataPoint point)
         {
+            for (int i = 0; i < point.valueList.Count; i++)
+            {
+                point.valueList[i] = Math.Round(point.valueList[i], 2);
+            }
             pointList.Add(point);
             if (pointList.Count > 5)
             {

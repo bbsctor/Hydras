@@ -16,17 +16,17 @@ namespace HydrasUI_WPF.UIManagers
     public class LogFileDownloadUIManager
     {
         private LogFileDownloadWindow mainFrame;
-        private UICommonService uiBasicService;
+        private UICommonService uiCommonService;
         public LogFileDownloadUIManager(Control control, UICommonService service)
         {
             mainFrame = (LogFileDownloadWindow)control;
-            uiBasicService = service;
+            uiCommonService = service;
         }
 
         public void updateUI(LogFileBaseInfoViewModel baseModel)
         {
-            SondeInfoViewModel sondeInfo = uiBasicService.getSondeInfoView();
-            string content = uiBasicService.buildLogFile(sondeInfo, baseModel);
+            SondeInfoViewModel sondeInfo = uiCommonService.getSondeInfoView();
+            string content = uiCommonService.buildLogFile(sondeInfo, baseModel);
             mainFrame.textBox.Text = content;
 
         }

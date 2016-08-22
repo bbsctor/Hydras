@@ -65,6 +65,32 @@ namespace HydrasBase.BaseModelImpl.ModelConverterImpl
                 return vModel;
         }
 
+        private static OnlineParameterValueViewModel genViewModel(OnlineParameterValueDataModel model, ParameterInfoListViewModel formatModel)
+        {
+            OnlineParameterValueViewModel vModel = new OnlineParameterValueViewModel();
+            string temp;
+            string format;
+            for (int i = 0; i < model.values.Count; i++)
+            {
+                if (i == 0)
+                {
+                    temp = DateTimeByteConverter.getDateTime(model.values[i]).ToString();
+                }
+                else
+                {
+                    format = formatModel[i].CalFormat1;
+                    format = format.Substring(format.Length - 2, 1);
+                    int bitLen;
+                    int.TryParse(format, out bitLen);
+                    float value = BitConverter.ToSingle(model.values[i], 0);
+                    temp = Math.Round(value, bitLen).ToString();
+                }
+                vModel.Values.Add(temp);
+            }
+
+            return vModel;
+        }
+
         public IViewModel genViewModel(IDataModel dModel)
         {
             OnlineParameterValueDataModel model = dModel as OnlineParameterValueDataModel;
@@ -72,6 +98,17 @@ namespace HydrasBase.BaseModelImpl.ModelConverterImpl
             if (model != null)
             {
                 vModel = genViewModel(model);
+            }
+            return vModel;
+        }
+
+        public IViewModel genViewModel(IDataModel dModel, ParameterInfoListViewModel formatModel)
+        {
+            OnlineParameterValueDataModel model = dModel as OnlineParameterValueDataModel;
+            OnlineParameterValueViewModel vModel = null;
+            if (model != null)
+            {
+                vModel = genViewModel((OnlineParameterValueDataModel)model, formatModel);
             }
             return vModel;
         }

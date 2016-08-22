@@ -69,7 +69,7 @@ namespace HydrasUI_WPF.Util
             {
                 if (i < logParameterInfoListViewModel.Count - 1)
                 {
-                    result.Append(logParameterInfoListViewModel[i].ParaName + ", ");
+                    result.Append(logParameterInfoListViewModel[i].ParaName + "\t ");
                 }
                 else
                 {
@@ -81,7 +81,7 @@ namespace HydrasUI_WPF.Util
             {
                 if (i < logParameterInfoListViewModel.Count - 1)
                 {
-                    result.Append(logParameterInfoListViewModel[i].CalUnit + ", ");
+                    result.Append(logParameterInfoListViewModel[i].CalUnit + "\t ");
                 }
                 else
                 {
@@ -97,7 +97,7 @@ namespace HydrasUI_WPF.Util
                 {
                     if (j < temp.values.Count - 1)
                     {
-                        result.Append(temp.values[j] + ", ");
+                        result.Append(temp.values[j] + "\t ");
                     }
                     else
                     {

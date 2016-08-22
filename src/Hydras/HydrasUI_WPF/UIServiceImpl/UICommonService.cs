@@ -108,9 +108,10 @@ namespace HydrasUI_WPF.UIServiceImpl
 
         public OnlineParameterValueViewModel getOnlineParameterValueViewModel()
         {
+            ParameterInfoListViewModel formatModel = getParameterInfoList();
             OnlineParameterValueDataModel list = sondeInfoDataModel.sondeDetailDataModel.onlineParameterValueDataModel;
             return (OnlineParameterValueViewModel)OnlineParameterValueModelConverter.
-                getInstance().genViewModel(list);
+                getInstance().genViewModel(list, formatModel);
         }
 
         public void updateLogFileParameterInfoDataModel(LogFileParameterInfoListDataModel ldModel)
