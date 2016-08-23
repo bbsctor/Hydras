@@ -17,6 +17,7 @@ namespace HydrasUI_WPF.UIManagers
     public class LogFileUIManager : StaticBaseUIManager
     {
         public enum Status { NO_SELSCTED, COMPLETE_LOG, UNCOMPLETE_LOG };
+        private Status status;
         private LogFileBaseInfoListViewModel vLogFileList = null;
         private LogFileSettingFieldListDataModel dSettingFieldList = null;
         private LogFileSettingFieldListViewModel vSettingFieldList = null;
@@ -44,7 +45,8 @@ namespace HydrasUI_WPF.UIManagers
                     mainFrame.logFile_removeParameterButton.IsEnabled = false;
                     mainFrame.logFile_savingButton.IsEnabled = false;
                     mainFrame.logFile_transferDBButton.IsEnabled = false;
-                    
+                    this.status = Status.NO_SELSCTED;
+
                     break;
                 case Status.COMPLETE_LOG:
                     //mainFrame.logFile_createButton.IsEnabled = true;
@@ -58,6 +60,7 @@ namespace HydrasUI_WPF.UIManagers
                     mainFrame.logFile_removeParameterButton.IsEnabled = false;
                     mainFrame.logFile_savingButton.IsEnabled = false;
                     mainFrame.logFile_transferDBButton.IsEnabled = false;
+                    this.status = Status.COMPLETE_LOG;
 
                     break;
                 case Status.UNCOMPLETE_LOG:
@@ -72,6 +75,7 @@ namespace HydrasUI_WPF.UIManagers
                     mainFrame.logFile_removeParameterButton.IsEnabled = true;
                     mainFrame.logFile_savingButton.IsEnabled = true;
                     mainFrame.logFile_transferDBButton.IsEnabled = false;
+                    this.status = Status.UNCOMPLETE_LOG;
 
                     break;
             }
@@ -86,7 +90,6 @@ namespace HydrasUI_WPF.UIManagers
 
         public override void updateUI()
         {
-            //updateUI_availableSize();
             updateUI_logFileList();
             updateUI_allParameter();
         }
@@ -131,9 +134,12 @@ namespace HydrasUI_WPF.UIManagers
 
             if (vModel.AutoLogState == 0x04)
             {
+                baseModel = uiBasicService.getLogFileBaseInfoListViewModel().
+                getModelByFileName(fileName);
                 mainFrame.logFile_disableButton.IsEnabled = true;
                 mainFrame.logFile_enableButton.IsEnabled = false;
                 mainFrame.logFile_statusLabel.Content = "已启用";
+                mainFrame.startLoggingTask(baseModel);
             }
             else if (vModel.AutoLogState == 0x84)
             {
@@ -142,14 +148,14 @@ namespace HydrasUI_WPF.UIManagers
                 mainFrame.logFile_statusLabel.Content = "已禁用";
             }
 
-            if (vModel.Size_scans > 0)
-            {
-                setUIAblity(Status.COMPLETE_LOG);
-            }
-            else
-            {
-                setUIAblity(Status.UNCOMPLETE_LOG);
-            }
+            //if (vModel.Size_scans > 0)
+            //{
+            //    setUIAblity(Status.COMPLETE_LOG);
+            //}
+            //else
+            //{
+            //    setUIAblity(Status.UNCOMPLETE_LOG);
+            //}
 
             mainFrame.logFile_typeLabel.Content = "时序记录文件";
         }
@@ -185,16 +191,16 @@ namespace HydrasUI_WPF.UIManagers
             vItem = vSettingFieldList.getModelByFileNum(0x06);
             updateUI_audio(vItem);
 
-            //DateTime temp = mainFrame.logFile_stopLoggingDate.Value.Date
-            //    + (mainFrame.logFile_stopLoggingTime.Value - mainFrame.logFile_stopLoggingTime.Value.Date);
-            //if (temp < clock.getDateTime())
-            //{
-            //    setUIAblity(Status.COMPLETE_LOG);
-            //}
-            //else
-            //{
-            //    setUIAblity(Status.UNCOMPLETE_LOG);
-            //}
+            DateTime temp = mainFrame.logFile_stopLoggingDate.Value.Date
+                + (mainFrame.logFile_stopLoggingTime.Value - mainFrame.logFile_stopLoggingTime.Value.Date);
+            if (temp < clock.getDateTime())
+            {
+                setUIAblity(Status.COMPLETE_LOG);
+            }
+            else
+            {
+                setUIAblity(Status.UNCOMPLETE_LOG);
+            }
         }
 
         private void updateUI_startLogging(LogFileSettingFieldViewModel vItem)
@@ -265,18 +271,29 @@ namespace HydrasUI_WPF.UIManagers
 
         public void updateUI_logFileStatus()
         {
-
+            DateTime temp = mainFrame.logFile_stopLoggingDate.Value.Date
+                + (mainFrame.logFile_stopLoggingTime.Value - mainFrame.logFile_stopLoggingTime.Value.Date);
+            if (temp < clock.getDateTime())
+            {
+                //setUIAblity(Status.COMPLETE_LOG);
+                mainFrame.logFile_statusAlertingLabel.Content = "已完成";
+            }
+            else
+            {
+                //setUIAblity(Status.UNCOMPLETE_LOG);
+                mainFrame.logFile_statusAlertingLabel.Content = "日志记录中...";
+            }
             updateUI_availableSize();
             vLogFileList = uiBasicService.getLogFileBaseInfoListViewModel();
             LogFileBaseInfoViewModel vModel = vLogFileList.getModelByLogNum(baseModel.LogNum);
             mainFrame.logFile_sizeLabel.Content = vModel.Size_bytes + "/" + vModel.Size_scans;
-            //if(baseModel.Size_scans > 0)
+            //if(status == Status.COMPLETE_LOG)
+            //{
+            //    mainFrame.logFile_statusAlertingLabel.Content = "已完成";
+            //}
+            //else if (status == Status.UNCOMPLETE_LOG)
             //{
             //    mainFrame.logFile_statusAlertingLabel.Content = "日志记录中...";
-            //}
-            //else if (baseModel.Size_scans == 0)
-            //{
-                mainFrame.logFile_statusAlertingLabel.Content = "日志记录中...";
             //}
         }
 

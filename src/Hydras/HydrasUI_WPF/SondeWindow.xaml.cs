@@ -494,13 +494,18 @@ namespace HydrasUI_WPF
             logFileUIManager.baseModel = baseModel;
             uiLogFileBaseInfoService.enableLogFile(baseModel.LogNum);
             this.logFile_statusLabel.Content = "已启用";
+            startLoggingTask(baseModel);
+
+            this.logFile_enableButton.IsEnabled = false;
+            this.logFile_disableButton.IsEnabled = true;
+        }
+
+        public void startLoggingTask(LogFileBaseInfoViewModel baseModel)
+        {
             logFileStatusTaskGroup = new LogFileStatusTaskGroup(this, logFileUIManager.updateUI_logFileStatus);
             logFileStatusTaskGroup.port = this.port;
             logFileStatusTaskGroup.CurrentMode = BasicTaskGroup.Mode.MULTI_THREAD;
             logFileStatusTaskGroup.onlineStatus(baseModel.LogNum);
-
-            this.logFile_enableButton.IsEnabled = false;
-            this.logFile_disableButton.IsEnabled = true;
         }
 
         private void logFile_disableButton_Click(object sender, RoutedEventArgs e)
