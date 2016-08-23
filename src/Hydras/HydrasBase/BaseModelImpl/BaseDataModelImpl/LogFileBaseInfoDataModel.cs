@@ -20,7 +20,7 @@ namespace HydrasBase.BaseModelImpl.BaseDataModelImpl
 
         public override void update(IModel model)
         {
-            update(model, new string[]{"mode", "autoLogState","logFileName", "startTime",
+            update(model, new string[]{"mode", "autoLogState","logFileName", "startTime", "size_bytes", "size_scans",
                 "parasNum", "settingFieldsNum"});
         }
     }

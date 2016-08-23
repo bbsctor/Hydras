@@ -28,6 +28,11 @@ namespace HydrasUI_WPF.UIServiceImpl
             controller.execute("readAllLogFileBaseInfo");
         }
 
+        public void getDeviceStorageInfo()
+        {
+            controller.execute("readDeviceStorage");
+        }
+
         public void updateLogFileAllInfo(byte logNum)
         {
             string action = ActionStrAssistant.buildActionStr("readLogFileAllInfo",

@@ -20,12 +20,14 @@ namespace HydrasUI_WPF.UITaskImpl
         {
             base.Add(new BasicTask(TYPE.STATUS, control, updateView, new BasicTask.Process(statusProcess)));
 
-            base.Interval = 1000;
+            base.Interval = 8000;
         }
 
         private void statusProcess()
         {
             new UILogFileBaseInfoService(port).getLogFileBaseInfo(logNum);
+            new UIDeviceStorageService(port).getInfo();
+            
         }
 
         public void onlineStatus(byte logNum)

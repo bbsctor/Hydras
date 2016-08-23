@@ -75,6 +75,10 @@ namespace HydrasBase.AppInterfaceImpl
                 logNum = ((DeviceStorageDataModel)deviceStorageController.model).logFilesNum;
                 readAllLogFile();
             }
+            else if ("readDeviceStorage".Equals(action))
+            {
+                readDeviceStorage();
+            }
             else if (action.Contains("readLogFileAllInfo") == true)
             {
                 byte para1;

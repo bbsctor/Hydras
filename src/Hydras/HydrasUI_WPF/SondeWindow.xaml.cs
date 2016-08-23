@@ -376,6 +376,8 @@ namespace HydrasUI_WPF
         {
             if (this.logFile_fileComboBox.SelectedIndex != -1)
             {
+                uiLogFileService.getDeviceStorageInfo();
+                logFileUIManager.updateUI_availableSize();
                 ComboBoxItem item = this.logFile_fileComboBox.SelectedItem as ComboBoxItem;
 
                 logFileUIManager.updateUI_logBaseInfo(item.Content.ToString());

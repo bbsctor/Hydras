@@ -86,8 +86,15 @@ namespace HydrasUI_WPF.UIManagers
 
         public override void updateUI()
         {
+            //updateUI_availableSize();
             updateUI_logFileList();
             updateUI_allParameter();
+        }
+
+        public void updateUI_availableSize()
+        {
+            DeviceStorageViewModel model = uiBasicService.getDeviceStorageViewModel();
+            mainFrame.logFile_availableSizeLabel.Content = model.bytesLeft;
         }
 
         public void updateUI_logFileList()
@@ -258,6 +265,11 @@ namespace HydrasUI_WPF.UIManagers
 
         public void updateUI_logFileStatus()
         {
+
+            updateUI_availableSize();
+            vLogFileList = uiBasicService.getLogFileBaseInfoListViewModel();
+            LogFileBaseInfoViewModel vModel = vLogFileList.getModelByLogNum(baseModel.LogNum);
+            mainFrame.logFile_sizeLabel.Content = vModel.Size_bytes + "/" + vModel.Size_scans;
             //if(baseModel.Size_scans > 0)
             //{
             //    mainFrame.logFile_statusAlertingLabel.Content = "日志记录中...";

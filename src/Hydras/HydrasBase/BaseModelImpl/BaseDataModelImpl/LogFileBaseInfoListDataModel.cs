@@ -39,7 +39,8 @@ namespace HydrasBase.BaseModelImpl.BaseDataModelImpl
             {
                 if (model.logNum == this[i].logNum)
                 {
-                    this[i].update(model);
+                    //this[i].update(model);
+                    this[i] = model;
                     return;
                 }
             }

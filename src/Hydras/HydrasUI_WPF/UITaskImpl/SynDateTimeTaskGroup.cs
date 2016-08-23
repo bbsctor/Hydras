@@ -20,7 +20,7 @@ namespace HydrasUI_WPF.UITaskImpl
             base.Add(new BasicTask(TYPE.SYN_DATETIME, control, updateView,
                 new BasicTask.Process(synDateTimeProcess)));
 
-            base.Interval = 10000;
+            base.Interval = 20000;
         }
 
         private void synDateTimeProcess()
