@@ -47,7 +47,7 @@ namespace HydrasUI_WPF.AssistantUserControl
             series.Name = name;
             series.XValueType = ChartValueType.DateTime;
             series.IsValueShownAsLabel = true;//显示数据点的值
-            this.chart1.Series.Add(series);
+            //this.chart1.Series.Add(series);
             seriesNamelist.Add(name);
 
             chart1.ChartAreas["ChartArea1"].Position = new ElementPosition(5 + 5 * seriesNamelist.Count, 5, 80, 80);
@@ -70,6 +70,7 @@ namespace HydrasUI_WPF.AssistantUserControl
                 series.Color = seriesColor[colorIndex++];
                 chart1.ChartAreas["ChartArea1"].AxisY.LineColor = series.Color;
             }
+            this.chart1.Series.Add(series);
         }
 
         public void refreshSeries()
@@ -178,6 +179,8 @@ namespace HydrasUI_WPF.AssistantUserControl
         public void CreateYAxis(Chart chart, ChartArea area, Series series, float axisOffset, float labelsSize,
             double[] axisYScope)
         {
+
+
             // Create new chart area for original series
             ChartArea areaSeries = chart.ChartAreas.Add("ChartArea_" + series.Name);
             areaSeries.BackColor = Color.Transparent;
@@ -201,6 +204,14 @@ namespace HydrasUI_WPF.AssistantUserControl
             areaAxis.Position.FromRectangleF(chart.ChartAreas[series.ChartArea].Position.ToRectangleF());
             areaAxis.InnerPlotPosition.FromRectangleF(chart.ChartAreas[series.ChartArea].InnerPlotPosition.ToRectangleF());
 
+            if (axisYScope[0] < axisYScope[1])
+            {
+                areaSeries.AxisY.Minimum = axisYScope[0];
+                areaSeries.AxisY.Maximum = axisYScope[1];
+                areaAxis.AxisY.Minimum = axisYScope[0];
+                areaAxis.AxisY.Maximum = axisYScope[1];
+            }
+
             // Create a copy of specified series
             Series seriesCopy = chart.Series.Add(series.Name + "_Copy");
             seriesCopy.ChartType = series.ChartType;
@@ -215,6 +226,8 @@ namespace HydrasUI_WPF.AssistantUserControl
             seriesCopy.BorderColor = Color.Transparent;
             seriesCopy.ChartArea = areaAxis.Name;
 
+            
+
             // Disable drid lines & tickmarks
             areaAxis.AxisX.LineWidth = 0;
             areaAxis.AxisX.MajorGrid.Enabled = false;
@@ -227,15 +240,13 @@ namespace HydrasUI_WPF.AssistantUserControl
             series.Color = seriesColor[colorIndex++];
             areaAxis.AxisY.LineColor = series.Color;
 
-            if (axisYScope[0] < axisYScope[1])
-            {
-                areaAxis.AxisY.Minimum = axisYScope[0];
-                areaAxis.AxisY.Maximum = axisYScope[1];
-            }
+
 
             // Adjust area position
             areaAxis.Position.X -= axisOffset;
             areaAxis.InnerPlotPosition.X += labelsSize;
+
+            //series.ChartArea = areaAxis.Name;
 
         }
     }
