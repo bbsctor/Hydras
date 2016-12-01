@@ -44,8 +44,7 @@ namespace HydrasUI_WPF.UIManagers
             oldModel.update(newModel);
 
 
-            ComboBoxItem item = mainFrame.baudRateComboBox.SelectedItem as ComboBoxItem;
-            HydrasUI_WPF.Properties.Settings.Default.option_baudrate = item.Content.ToString();
+
             if (mainFrame.autoBaudRateCheckBox.IsChecked == true)
             {
                 HydrasUI_WPF.Properties.Settings.Default.option_isAutoBaudRate = true; 
@@ -53,6 +52,8 @@ namespace HydrasUI_WPF.UIManagers
             else if (mainFrame.autoBaudRateCheckBox.IsChecked == false)
             {
                 HydrasUI_WPF.Properties.Settings.Default.option_isAutoBaudRate = false;
+                ComboBoxItem item = mainFrame.baudRateComboBox.SelectedItem as ComboBoxItem;
+                HydrasUI_WPF.Properties.Settings.Default.option_baudrate = item.Content.ToString();
             }
 
             HydrasUI_WPF.Properties.Settings.Default.option_portList = mainFrame.portListTextBox.Text;

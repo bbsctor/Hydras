@@ -29,6 +29,7 @@ namespace HydrasUI_WPF
         {
             InitializeComponent();
             initOption();
+            this.baudRateComboBox.SelectedIndex = 3;
         }
 
         private void initOption()

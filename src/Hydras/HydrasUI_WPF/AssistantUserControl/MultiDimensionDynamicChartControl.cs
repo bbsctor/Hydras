@@ -245,9 +245,6 @@ namespace HydrasUI_WPF.AssistantUserControl
             // Adjust area position
             areaAxis.Position.X -= axisOffset;
             areaAxis.InnerPlotPosition.X += labelsSize;
-
-            //series.ChartArea = areaAxis.Name;
-
         }
     }
 }

@@ -42,6 +42,7 @@ namespace HydrasUI_WPF
         {
             InitializeComponent();
             MainWindowContext.mainWindow = this;
+            this.IsEnabled = false;
             SpringContext.initContext();
             initUIManager();
             initTask();
@@ -49,6 +50,7 @@ namespace HydrasUI_WPF
             InitializeBackgroundWorker();
             backgroundWorker.RunWorkerAsync();
             //new System.Threading.Thread(this.doBackGroundWork).Start();
+            this.IsEnabled = true;
         }
 
         private void InitializeBackgroundWorker()
@@ -113,7 +115,7 @@ namespace HydrasUI_WPF
 
                 if (HydrasUI_WPF.Properties.Settings.Default.option_isAutoBaudRate == true)
                 {
-                    newModel.baudRateArray = new string[] {"19200"};
+                    newModel.baudRateArray = new string[] { "19200" };
                 }
                 else if ("".Equals(HydrasUI_WPF.Properties.Settings.Default.option_baudrate) == false)
                 {
